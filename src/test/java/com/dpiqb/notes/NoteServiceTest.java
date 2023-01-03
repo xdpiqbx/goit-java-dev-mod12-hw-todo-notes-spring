@@ -13,7 +13,7 @@ public class NoteServiceTest {
   public static void init(){
     storage = new NoteMapStorage();
     service = new NoteService(storage);
-    Map<Long, Note> data = new LinkedHashMap<>();
+    Map<Long, Note> data = Collections.synchronizedMap(new LinkedHashMap<>());
     String[] mockTitle = new String[]{"Title 001", "Title 002", "Title 003"};
     String[] mockContent = new String[]{"Content 001", "Content 002", "Content 003"};
     int i = 0;
